@@ -53,12 +53,12 @@ def load_data(csv_file: str) -> pd.DataFrame:
     if not os.path.isfile(csv_file):
         raise FileNotFoundError(f"CSV file '{csv_file}' not found.")
     try:
-        df = pd.read_csv(csv_file, parse_dates=['Date'])
+        df = pd.read_csv(csv_file, parse_dates=['Dates'])
     except Exception as e:
         raise ValueError(f"Error reading CSV file '{csv_file}': {e}")
     
     # Sort the data by date to ensure chronological order
-    df.sort_values('Date', inplace=True)
+    df.sort_values('Dates', inplace=True)
     return df
 
 def prepare_prophet_data(df: pd.DataFrame) -> pd.DataFrame:
@@ -79,7 +79,7 @@ def prepare_prophet_data(df: pd.DataFrame) -> pd.DataFrame:
         ValueError: If required columns are missing.
     """
     # Ensure that the required columns exist in the dataframe
-    if 'Dates' not in df.columns or 'Price' not in df.columns:
+    if 'Dates' not in df.columns or 'Prices' not in df.columns:
         raise ValueError("CSV data must contain 'Dates' and 'Prices' columns.")
     
     # Rename columns to 'ds' and 'y' as required by Prophet
