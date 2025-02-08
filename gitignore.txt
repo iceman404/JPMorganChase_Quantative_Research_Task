@@ -1,0 +1,60 @@
+# Ignore Python bytecode and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv/
+
+# Ignore environment and config files with sensitive information
+env/.env
+
+# Ignore IDE and editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore logs and runtime files
+*.log
+*.pid
+*.out
+*.err
+
+# Ignore operating system generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.backup
+*.old
+*.orig
+
+# Ignore output data or generated files
+parent_output_data/
+*.json
+*.csv
+*.xlsx
+
+# Ignore specific tooling artifacts
+*.egg-info/
+*.eggs/
+build/
+dist/
+
+# Keep necessary files (negative patterns override above rules)
+!adpull/**
+!config/config.py
+!env/readme
+!main/**
+!requirements.txt
+!setup_python_env.sh
+
+# Ignore everything else in the project root except explicitly included
+/*
+!.gitignore
